@@ -1,0 +1,23 @@
+# At P=1 every method is the same synchronous reference.
+program: scripts/train.sh
+method: grid
+metric:
+  name: train/loss_ema
+  goal: minimize
+parameters:
+  method.name:
+    value: stashing   # at P=1 every method is plain synchronous training
+  lr.schedule.peak_value:
+    values: [1.0e-4, 3.0e-4, 1.0e-3]
+  optimizer.momentum:
+    values: [0.9, 0.99]
+command:
+  - env
+  - NSTAGES=1
+  - NGPUS=1
+  - bash
+  - ${program}
+  - --logging.wandb
+  - --logging.wandb_project=fresco
+  - --runtime.engine=eager
+  - ${args}

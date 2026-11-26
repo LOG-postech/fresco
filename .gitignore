@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Local environments
+.python-version
+uv.lock
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Data and training outputs
+data/
+checkpoints/
+checkpoint/
+logs/
+wandb/
+*.log
+*.pth.tar
+
+# Caches and temporary files
+.cache/
+.ruff_cache/
+.*_cache/
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build and test outputs
+build/
+dist/
+.coverage
+.coverage.*
+htmlcov/
